@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-06-14T09:08:52.122949599Z",
+  "groups": [
+    {
+      "key": "holiday",
+      "name": "节假日",
+      "calendars": [
+        {
+          "id": "cn-holiday",
+          "name": "中国节假日",
+          "description": "内置示例数据，可替换为真实节假日源。",
+          "provider": "manual",
+          "updatedAt": "2026-06-14T09:08:52.122754231Z",
+          "icsPath": "ics/cn-holiday.ics",
+          "eventCount": 1
+        }
+      ]
+    },
+    {
+      "key": "work",
+      "name": "工作安排",
+      "calendars": [
+        {
+          "id": "release-schedule",
+          "name": "版本发布计划",
+          "description": "示例发布节奏，可由插件动态维护。",
+          "provider": "manual",
+          "updatedAt": "2026-06-14T09:08:52.122754231Z",
+          "icsPath": "ics/release-schedule.ics",
+          "eventCount": 1
+        }
+      ]
+    }
+  ]
+}
