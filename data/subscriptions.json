@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T09:03:46.708735146Z",
+  "generatedAt": "2026-06-15T12:01:00.570678681Z",
   "groups": [
     {
       "key": "esports",
@@ -10,7 +10,7 @@
           "name": "2026职业联赛",
           "description": "LPL 官方赛程，来源 lpl.qq.com。",
           "provider": "lpl",
-          "updatedAt": "2026-06-15T09:03:46.708303721Z",
+          "updatedAt": "2026-06-15T12:01:00.570289076Z",
           "icsPath": "ics/lpl-schedule.ics",
           "eventCount": 164
         }
@@ -25,7 +25,7 @@
           "name": "中国节假日",
           "description": "内置示例数据，可替换为真实节假日源。",
           "provider": "manual",
-          "updatedAt": "2026-06-15T09:03:46.708305314Z",
+          "updatedAt": "2026-06-15T12:01:00.570290839Z",
           "icsPath": "ics/cn-holiday.ics",
           "eventCount": 1
         }
@@ -40,7 +40,7 @@
           "name": "版本发布计划",
           "description": "示例发布节奏，可由插件动态维护。",
           "provider": "manual",
-          "updatedAt": "2026-06-15T09:03:46.708305314Z",
+          "updatedAt": "2026-06-15T12:01:00.570290839Z",
           "icsPath": "ics/release-schedule.ics",
           "eventCount": 1
         }
