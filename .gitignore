@@ -28,3 +28,7 @@ Thumbs.db
 # Frontend dependencies and build output
 web/node_modules/
 web/dist/
+
+# Generated subscription artifacts
+web/public/data/subscriptions.json
+web/public/ics/*.ics
