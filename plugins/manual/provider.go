@@ -8,6 +8,10 @@ import (
 
 type provider struct{}
 
+func (provider) Disabled() bool {
+	return false
+}
+
 func (provider) Name() string {
 	return "manual"
 }

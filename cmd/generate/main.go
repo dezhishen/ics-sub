@@ -12,6 +12,7 @@ import (
 	"time"
 
 	"ics-sub/internal/subscriptions"
+	_ "ics-sub/plugins/lpl"
 	_ "ics-sub/plugins/manual"
 )
 

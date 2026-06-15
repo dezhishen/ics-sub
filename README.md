@@ -1,40 +1,46 @@
-# ics-sub
+# ICS 订阅聚合
 
-基于 Go 插件生成日历数据与 ICS 文件，并使用 Vue 展示分组订阅链接，最终通过 GitHub Pages 发布。
+这是一个可直接使用的日历订阅聚合站点：
 
-## 架构
+- 网页中可按分组查看可订阅日历
+- 每个日历提供标准 `.ics` 链接，可用于 Apple Calendar、Google Calendar、Outlook 等客户端
+- 数据由 GitHub Actions 自动生成并发布到 GitHub Pages
 
-- `plugins/*`：数据插件，输出统一的日历数据模型（含 `group`、`name`、`events`）
-- `cmd/generate`：读取插件数据，产出：
-  - `web/public/data/subscriptions.json`（前端分组索引）
-  - `web/public/ics/<calendar-id>.ics`（每个日历一个文件）
-- `web`：Vue + Vite 前端，按分组页签展示并支持过滤
-- `.github/workflows/deploy-pages.yml`：CI 先跑 Go 生成，再构建前端并推送到 `gh-pages`
+## 使用说明
 
-## 本地使用
+1. 打开你的 GitHub Pages 站点（示例：`https://<你的用户名>.github.io/<仓库名>/`）。
+2. 在页面中找到要订阅的日历。
+3. 复制对应的 ICS 链接（通常形如 `.../ics/<calendar-id>.ics`）。
+4. 在你的日历客户端中添加“通过 URL 订阅”。
 
-1. 生成数据
+## 常见客户端添加方式
 
-```bash
-go run ./cmd/generate
-```
+- Apple Calendar（macOS/iOS）：
+  - 选择“新建订阅日历”并粘贴 ICS URL。
+- Google Calendar：
+  - 左侧“其他日历” -> “通过 URL 添加”。
+- Outlook：
+  - 选择“从 Internet 订阅日历”并粘贴 ICS URL。
 
-2. 启动前端
+## 自动更新
 
-```bash
-cd web
-npm install
-npm run dev
-```
+- 工作流文件：`.github/workflows/deploy-pages.yml`
+- 触发方式：
+  - 推送到 `main` 分支时自动更新
+  - 手动触发（`workflow_dispatch`）
+  - 定时触发：每小时整点（UTC）自动生成并发布一次
 
-3. 构建产物
+## 自建/二次部署
 
-```bash
-npm run build
-```
+如果你想维护自己的订阅内容：
 
-## 数据约定
+1. Fork 本仓库。
+2. 按你的需求调整 `plugins/` 下的数据来源。
+3. 确保仓库已启用 GitHub Pages（发布分支为 `gh-pages`）。
+4. 推送到 `main` 后等待 Action 自动发布。
 
-- 一份源数据同时驱动 JSON 与 ICS，避免重复维护
-- 每个日历按 `id` 输出一个 `.ics` 文件（示例：`cn-holiday.ics`）
-- JSON 以 `groups` 组织，前端天然支持分组页签和过滤
+## 目录说明
+
+- `web/public/data/subscriptions.json`：前端展示用的数据索引
+- `web/public/ics/`：实际订阅的 ICS 文件目录
+

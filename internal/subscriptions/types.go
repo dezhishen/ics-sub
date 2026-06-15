@@ -27,6 +27,7 @@ type Calendar struct {
 
 // Provider is the plugin contract for producing calendar data.
 type Provider interface {
+	Disabled() bool
 	Name() string
 	Generate() ([]Calendar, error)
 }

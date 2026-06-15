@@ -30,6 +30,9 @@ func GenerateAll() ([]Calendar, error) {
 	all := make([]Calendar, 0)
 	for _, name := range names {
 		provider := registry[name]
+		if provider.Disabled() {
+			continue
+		}
 		items, err := provider.Generate()
 		if err != nil {
 			return nil, fmt.Errorf("provider %s failed: %w", name, err)
